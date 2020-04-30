@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Stateless Functional Components
 function ListContacts (props) {
@@ -16,7 +16,9 @@ function ListContacts (props) {
                         <p>{contact.name}</p>
                         <p>{contact.handle}</p>
                     </div>
-                    <button className='contact-remove'>
+                    <button 
+                        onClick={() => props.onDeleteContact(contact)}
+                        className='contact-remove'>
                         Remove
                     </button>
                 </li>

@@ -27,11 +27,23 @@ class App extends Component {
             }
         ]
     }
+
+    removeContact = (contact) => {
+        // Callback/functional state
+        this.setState((currentState) => ({
+            contacts: currentState.contacts.filter((c) => {
+                return c.id !== contact.id
+            })
+        }))
+    }
     
     render () {
         return (
             <div className="App">
-                <ListContacts contacts={this.state.contacts} />
+                <ListContacts 
+                    contacts={this.state.contacts} 
+                    onDeleteContact={this.removeContact}
+                />
             </div>
         );
     }
